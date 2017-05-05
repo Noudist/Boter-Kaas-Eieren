@@ -1,0 +1,51 @@
+Vars
+
+ButtonPressControl = button control
+ButtonArrowControl = button control
+
+Ints:
+H1	H2	H3
+H4	H5	H6
+H7	H8	H9
+
+Int Player 1
+Int Player 2
+
+var PlayerTurn
+
+bool H1Filled is false
+bool H2Filled is false
+bool H3Filled is false
+bool H4Filled is false
+bool H5Filled is false
+bool H6Filled is false
+bool H7Filled is false
+bool H8Filled is false
+bool H9Filled is false
+
+[START]
+Background Xpos Ypos
+
+H1 = Xpos Ypos
+H2 = XPos Ypos
+REPEAT
+
+[LOOP]
+IF (ButtonArrowPress)
+	{Cursor Xpos Ypos}
+
+IF (H1 ButtonPressControl pressed && H1Filled == false)
+	{symbol entered
+	H1Filled = true
+	NEXT TURN}
+REPEAT IFs
+
+
+[WIN CONDITION]
+IF (H2 == H1 && H2 == H3 || H5 == H4 && H5 == H6 || etc.)
+	{IF (H2 == 1)
+		{Player 1 wins}
+	ELSE IF (H2 == 2)
+		{Player 2 wins}}
+    
+END
